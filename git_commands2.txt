@@ -1,0 +1,9 @@
+git init
+git config user.email "my_email@gmail.com"
+git config user.name "userName"
+echo "# test67" >> README.md
+git add README.md
+git commit -m "first commit"
+git branch -M main
+git remote add origin git@github.com-nameInLocalConfigFile:zakir456/test67.git
+git push -u origin main

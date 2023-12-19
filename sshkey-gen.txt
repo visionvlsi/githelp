@@ -1,0 +1,72 @@
+1. step1 generate ssh key 
+
+ssh-keygen -t rsa -C "your-email-address" -f "github-username"
+
+here,
+
+-C stands for comment to help identify your ssh key
+
+-f stands for the file name where your ssh key get saved
+
+2. step2 add:
+eval $(ssh-agent)
+Add SSH keys[private keys] to SSH Agent
+Now we have the keys but it cannot be used until we add them to the SSH Agent.
+
+     ssh-add -K ~/.ssh/github-rahul-office
+     ssh-add -K ~/.ssh/github-rahul-personal
+
+3. step3 
+Add SSH public key to the Github
+
+4. step4
+Create a Config File and Make Host Entries
+The ~/.ssh/config file allows us specify many config options for SSH.
+ #rahul-office account
+     Host github.com-rahul-office
+          HostName github.com
+          User git
+          IdentityFile ~/.ssh/github-rahul-office
+
+     #rahul-personal account
+     Host github.com-rahul-personal
+          HostName github.com
+          User git
+          IdentityFile ~/.ssh/github-rahul-personal
+
+5. step5
+
+Cloning GitHub repositories using different accounts
+So we are done with our setups and now its time to see it in action. We will clone a repository using one of the account we have added.
+
+Make a new project folder where you want to clone your repository and go to that directory from your terminal.
+
+For Example: I am making a repository on my personal github account and naming it TestRepo Now for cloning the repo use the below command:
+
+    git clone git@github.com-{your-username}:{owner-user-name}/{the-repo-name}.git
+
+    [e.g.] git clone git@github.com-rahul-personal:rahul-personal/TestRepo.git
+
+6. Finally
+
+From now on, to ensure that our commits and pushes from each repository on the system uses the correct GitHub user — we will have to configure user.email and user.name in every repository freshly cloned or existing before.
+
+To do this use the following commands.
+
+     git config user.email "my_office_email@gmail.com"
+     git config user.name "Rahul Pandey"
+     
+     git config user.email "my-personal-email@gmail.com"
+     git config user.name "Rahul Pandey"
+Pick the correct pair for your repository accordingly.
+
+To push or pull to the correct account we need to add the remote origin to the project
+
+     git remote add origin git@github.com-rahul-personal:rahul-personal
+     
+     git remote add origin git@github.com-rahul-office:rahul-office
+Now you can use:
+
+     git push
+     
+     git pull
