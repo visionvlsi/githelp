@@ -1,0 +1,24 @@
+fetch, merge, and pull
+
+git fetch and git merge origin/master will fetch & integrate remote changes. Let me explain a common scenario. origin/master is at C. Someone pushed D. You worked on E & F. Note that you will not see D in your local repository until you run git fetch.
+
+   origin/master
+    v
+A-B-C-E-F < master
+     \
+     (D) < master on remote
+Now you run git fetch. Now you can see D, and origin/master is updated to match the remote repository that it's tracking.
+
+A-B-C-E-F < master
+     \
+      D < origin/master, master on remote
+Now you run git merge, giving you this:
+
+A-B-C-E-F
+     \   \
+      D---G < master
+      ^
+    origin/master, master on remote
+So now you've integrated your changes on master (E, F) with the new commits on origin/master (D).
+
+git pull is simply a shortcut for the above steps.
