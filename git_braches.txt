@@ -1,0 +1,11 @@
+#The following command creates a branch with the name git_related_stuff1
+#And it switches to that created branch
+git checkout -b git_related_stuff1
+#The following commands helps us to know in which active branch are we in ?
+git status
+#The following command lets us know all the branches that are existing
+git branch -a
+#The following commad is to push to specific branch here it is "git_related_stuff1"
+git push origin git_related_stuff1
+#The following command is to pull from specific branch, here it is "main"
+git pull origin main
