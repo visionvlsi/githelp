@@ -22,3 +22,5 @@ A-B-C-E-F
 So now you've integrated your changes on master (E, F) with the new commits on origin/master (D).
 
 git pull is simply a shortcut for the above steps.
+
+Try this Good luck.
