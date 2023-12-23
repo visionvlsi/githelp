@@ -1,0 +1,15 @@
+git init
+git config user.email "my_email@gmail.com"
+git config user.name "userName"
+echo "# test67" >> README.md
+git add README.md
+git commit -m "first commit"
+git branch -M main  [-M automatically renames the master branch to main.]
+git remote add origin git@github.com-nameInLocalConfigFile:zakir456/test67.git
+git push -u origin main
+
+git pull origin main
+git config --system core.longpaths true
+
+What is the use of M flag in git?
+-M is a flag (shortcut) for --move --force per the docs page on git branch . It forcefully renames the branch from master (the default branch name for repositories created using the command line is master , while those created in GitHub [starting in Oct. 2020] have a default name of main ) to main .
